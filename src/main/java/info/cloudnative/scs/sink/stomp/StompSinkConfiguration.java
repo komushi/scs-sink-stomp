@@ -62,9 +62,12 @@ public class StompSinkConfiguration extends AbstractWebSocketMessageBrokerConfig
 
         StompPayload stompPayload = new StompPayload(message.getPayload());
 
+        if (logger.isTraceEnabled()) {
+            logger.trace(String.format("topic: %s", topic));
+            logger.trace(String.format("stompPayload: %s", stompPayload.getPayloadString()));
+        }
+
         template.convertAndSend("/topic/" + topic, stompPayload);
-
-
     }
 
     @Override
