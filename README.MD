@@ -38,7 +38,12 @@ java -jar target/scs-sink-stomp-1.0.0-RELEASE.jar --spring.cloud.stream.bindings
 ## 4. Run with docker deployment
 ### 4-1. Deploy on AWS
 ```
-docker run komushi/scs-sink-stomp --spring.cloud.stream.defaultBinder=kinesis --cloud.aws.region.static=ap-northeast-1 --gemfire.pool.host-addresses=<gemfire-cacheserver-address>:40404 
+docker run komushi/scs-sink-stomp --spring.cloud.stream.defaultBinder=kinesis --cloud.aws.region.static=ap-northeast-1
+```
+
+### 4-2. Local Deployment
+```
+docker run komushi/scs-sink-stomp --spring.rabbitmq.host=docker.for.mac.localhost --logging.level.info.cloudnative=TRACE
 ```
 
 # II. Appendix
